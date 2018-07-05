@@ -3,10 +3,10 @@
   become_user: root
   tasks:
     - file:
-      path: /opt/tomcat
-      owner: ec2-user
-      group: ec2-user
-      mode: 0644
+        path: /opt/tomcat
+        owner: ec2-user
+        group: ec2-user
+        mode: 0644
 
 - hosts: aws
   tasks:
