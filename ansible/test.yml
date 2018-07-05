@@ -1,5 +1,23 @@
 - hosts: aws
+  become: yes
+  become_user: root
   tasks:
-    - shell: pwd
+    - file:
+      path: /opt/tomcat
+      owner: ec2-user
+      group: ec2-user
+      mode: 0644
+
+- hosts: aws
+  tasks:
+#    - get_url:
+#        url: http://www-us.apache.org/dist/tomcat/tomcat-8/v8.5.32/bin/apache-tomcat-8.5.32.tar.gz
+#        dest: /opt/tomcat
+#        mode: 0644
+    - unarchive:
+        src: http://www-us.apache.org/dist/tomcat/tomcat-8/v8.5.32/bin/apache-tomcat-8.5.32.tar.gz
+        dest: /opt/tomcat
+        remote_src: yes
+    - shell: ll /opt/tomcat
       register: toto
     - debug: var=toto
