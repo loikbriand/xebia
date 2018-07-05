@@ -1,0 +1,5 @@
+- hosts: aws
+  tasks:
+    - shell: pwd
+      register: toto
+    - debug: var=toto
