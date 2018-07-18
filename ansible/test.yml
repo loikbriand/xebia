@@ -32,4 +32,9 @@
     - copy:
         src: /tmp/clickCount.war
         dest: /opt/tomcat/apache-tomcat-8.5.32/webapps
+
+- hosts: aws
+  become: yes
+  become_user: root
+  tasks:
     - shell: /opt/tomcat/apache-tomcat-8.5.32/bin/startup.sh
