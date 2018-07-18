@@ -1,7 +1,14 @@
 pipelineJob('example') {
     definition {
         cps {
-            script("project-a-workflow")
+            script('''
+stage "build"
+node {
+    deleteDir()
+    git "https://github.com/loikbriand/xebia.git"
+    sh "mvn clean deploy"
+}
+''')
             sandbox()
         }
     }
