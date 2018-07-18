@@ -1,4 +1,4 @@
-pipelineJob('example') {
+pipelineJob('build clickCount') {
     definition {
         cps {
             script('''
