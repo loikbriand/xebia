@@ -76,4 +76,12 @@
         <finalName>clickCount</finalName>
     </build>
 
+    <distributionManagement>
+        <snapshotRepository>
+            <id>artifactoryLocal</id>
+            <name>artifactoryLocal</name>
+            <url>http://localhost:8081/artifactory/example-repo-local/</url>
+        </snapshotRepository>
+    </distributionManagement>
+
 </project>
