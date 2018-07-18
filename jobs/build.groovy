@@ -1,7 +1,8 @@
 pipelineJob('example') {
     definition {
         cps {
-            sandbox("toto")
+            script("project-a-workflow")
+            sandbox()
         }
     }
 }
