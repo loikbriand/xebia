@@ -27,11 +27,11 @@
         group_id: fr.xebia
         artifact_id: applicatif
         version: 1.0-SNAPSHOT
-        extension: zip
+        extension: tar
         repository_url: "http://localhost:8081/artifactory/example-repo-local"
-        dest: /tmp/applicatif.zip
+        dest: /tmp/applicatif.tar
     - unarchive:
-        src: /tmp/applicatif.zip
+        src: /tmp/applicatif.tar
         dest: /opt/tomcat/apache-tomcat-8.5.32/
 
 - hosts: aws
