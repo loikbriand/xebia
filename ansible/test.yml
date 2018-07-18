@@ -5,6 +5,9 @@
     - shell: /opt/tomcat/apache-tomcat-8.5.32/bin/shutdown.sh
     - file:
         path: /opt/tomcat
+        state: absent
+    - file:
+        path: /opt/tomcat
         state: directory
         owner: ec2-user
         group: ec2-user
