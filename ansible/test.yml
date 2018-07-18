@@ -23,6 +23,7 @@
         group_id: fr.xebia
         artifact_id: clickCount
         version: 1.0-SNAPSHOT
+        extension: war
         repository_url: "http://localhost:8081/artifactory/example-repo-local"
         dest: /tmp
     - copy:
