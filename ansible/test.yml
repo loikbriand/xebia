@@ -23,7 +23,7 @@
         group_id: fr.xebia
         artifact_id: clickCount
         version: 1.0-SNAPSHOT
-        repository_url: "file:///home/jenkins/.m2/repository"
+        repository_url: "http://localhost:8081/artifactory/example-repo-local"
         dest: /tmp
     - copy:
         src: /tmp/clickCount*.war
