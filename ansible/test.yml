@@ -11,14 +11,15 @@
 
 - hosts: aws
   tasks:
-#    - get_url:
-#        url: http://www-us.apache.org/dist/tomcat/tomcat-8/v8.5.32/bin/apache-tomcat-8.5.32.tar.gz
-#        dest: /opt/tomcat
-#        mode: 0644
     - unarchive:
         src: http://www-us.apache.org/dist/tomcat/tomcat-8/v8.5.32/bin/apache-tomcat-8.5.32.tar.gz
         dest: /opt/tomcat
         remote_src: yes
-    - shell: ll /opt/tomcat
+    - shell: ls -ltr /opt/tomcat
       register: toto
     - debug: var=toto
+    - maven_artifact:
+        group_id: fr.xebia
+        artifact_id: clickCount
+        version: 1.0-SNAPSHOT
+        dest: /opt/tomcat/apache-tomcat-8.5.32/webapps
