@@ -1,2 +1,0 @@
-# Click Count application LBRa
-

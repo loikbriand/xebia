@@ -19,20 +19,20 @@
         src: http://www-us.apache.org/dist/tomcat/tomcat-8/v8.5.32/bin/apache-tomcat-8.5.32.tar.gz
         dest: /opt/tomcat
         remote_src: yes
-    - shell: ls -ltr /opt/tomcat/apache-tomcat-8.5.32/bin
+    - shell: cat /opt/tomcat/apache-tomcat-8.5.32/conf/server
       register: toto
     - debug: var=toto
     - local_action: maven_artifact
       args:
         group_id: fr.xebia
-        artifact_id: clickCount
+        artifact_id: applicatif
         version: 1.0-SNAPSHOT
         extension: war
         repository_url: "http://localhost:8081/artifactory/example-repo-local"
-        dest: /tmp/clickCount.war
-    - copy:
-        src: /tmp/clickCount.war
-        dest: /opt/tomcat/apache-tomcat-8.5.32/webapps
+        dest: /tmp/applicatif.zip
+    - unarchive:
+        src: /tmp/applicatif.zip
+        dest: /opt/tomcat/apache-tomcat-8.5.32/
 
 - hosts: aws
   become: yes
