@@ -22,4 +22,5 @@
         group_id: fr.xebia
         artifact_id: clickCount
         version: 1.0-SNAPSHOT
+        repository_url: "file:///home/jenkins/.m2/repository"
         dest: /opt/tomcat/apache-tomcat-8.5.32/webapps
