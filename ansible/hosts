@@ -1,2 +1,5 @@
 [aws]
-aws_host ansible_host=35.180.58.244
+aws_host ansible_host=35.180.58.244 tomcat_port="80"
+
+[redis]
+redis_host ansible_host=18.196.88.85
