@@ -50,12 +50,13 @@
       with_items:
         - "conf/server.xml"
         - "properties/redis.properties"
-    - file:
-        path: /tmp/applicatif.tar
+    - local_action: file
+      args:
+        path: "/tmp/{{ item }}"
         state: absent
-    - file:
-        path: /tmp/applicatif
-        state: absent
+      with_items:
+        - "applicatif.tar"
+        - "applicatif/"
 
 - hosts: aws
   become: yes
