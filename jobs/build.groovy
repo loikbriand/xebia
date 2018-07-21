@@ -2,7 +2,12 @@ pipelineJob('build clickCount') {
     definition {
         cpsScm {
             scm {
-                git('https://github.com/loikbriand/xebia.git')
+                git {
+                    remote {
+                        url('https://github.com/loikbriand/xebia.git')
+                    }
+                    branches('master')
+                }
             }
         }
     }
