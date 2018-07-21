@@ -9,6 +9,7 @@ pipelineJob('build clickCount') {
                     branches('master')
                 }
             }
+            scriptPath('Jenkinsfile')
         }
     }
 }
