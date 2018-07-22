@@ -1,4 +1,7 @@
 pipelineJob('test deploy clickCount') {
+    parameters {
+        choiceParam('ENVIRONMENT_NAME', ['STAGING(default)', 'PROD'])
+    }
     definition {
         cps {
             script('''
@@ -9,9 +12,8 @@ node {
     sshagent(credentials: ["AWS_SSH_KEY"], ignoreMissing: false) {
         sh \'\'\'
 cd ansible
-pwd
 export ANSIBLE_CONFIG=./ansible.cfg
-ansible-playbook -i hosts test.yml
+ansible-playbook -i \$ENVIRONMENT_NAME/hosts test.yml
 \'\'\'
     }
 }            
