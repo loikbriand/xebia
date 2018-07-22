@@ -1,4 +1,4 @@
-pipelineJob('build clickCount') {
+pipelineJob('buildClickCount') {
     definition {
         cpsScm {
             scm {

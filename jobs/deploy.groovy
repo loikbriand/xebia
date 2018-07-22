@@ -1,6 +1,6 @@
-pipelineJob('test deploy clickCount') {
+pipelineJob('deployClickCount') {
     parameters {
-        choiceParam('ENVIRONMENT_NAME', ['STAGING(default)', 'PROD'])
+        choiceParam('ENVIRONMENT_NAME', ['STAGING', 'PROD'])
     }
     definition {
         cps {
@@ -10,11 +10,10 @@ node {
     deleteDir()
     git "https://github.com/loikbriand/xebia.git"
     sshagent(credentials: ["AWS_SSH_KEY"], ignoreMissing: false) {
-        sh \'\'\'
-cd ansible
-export ANSIBLE_CONFIG=./ansible.cfg
-ansible-playbook -i \$ENVIRONMENT_NAME/hosts test.yml
-\'\'\'
+        withEnv(['ANSIBLE_CONFIG=ansible/ansible.cfg']) {
+            sh 'echo \$ANSIBLE_CONFIG'
+            sh "ansible-playbook -i ansible/\${ENVIRONMENT_NAME}/hosts ansible/test.yml"
+        }
     }
 }            
 ''')
