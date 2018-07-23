@@ -1,4 +1,10 @@
-stage "build"
-node {
-    sh "mvn clean deploy"
+pipeline {
+    agent any
+    stages {
+        stage('build') {
+            steps {
+                sh "mvn clean deploy"
+            }
+        }
+    }
 }
